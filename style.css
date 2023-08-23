@@ -1,0 +1,176 @@
+:root {
+  --dark-grey: #536265;
+  --dirty-white: #EDEBD7;
+  --fiery-red: #DD1C1A;
+  --dark-blue: #086788;
+  --cream-white: #FFF1D0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+
+
+button,
+input {
+  font-family: inherit;
+  font-size: 100%;
+
+}
+
+label {
+  display: block;
+}
+
+input {
+  appearance: none;
+  width: 100%;
+  padding: 20px;
+  border: none;
+  outline-color: transparent;
+}
+
+body {
+  font-size: 16px;
+  background-color: var(--dark-grey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+
+
+
+}
+
+#content>* {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#welcomePhoto {
+
+  position: relative;
+
+
+}
+
+#welcomePhoto img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  border-radius: 15px;
+
+}
+
+#signupFormContainer {
+  background-color: black;
+  color: var(--cream-white);
+  position: relative;
+  border-radius: 15px;
+}
+
+.formContainer {
+  width: 90%;
+}
+
+.titleText {
+  padding: 20px;
+  background-color: var(--dirty-white);
+  border-radius: 15px;
+  color: var(--dark-blue);
+  margin-bottom: 20px;
+}
+
+.box {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+
+.inputPair {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.inputPair label {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+}
+
+.inputPair select {
+  padding: 20px;
+  border: 2px solid rgb(179, 179, 194);
+
+
+}
+
+.inputPair input {
+  border: 2px solid rgb(179, 179, 194);
+
+}
+
+.inputPair.email {
+  width: 100%;
+  font-family: inherit;
+  font-size: 90%;
+}
+
+input:invalid {
+  border-color: #ff0000;
+  background-color: #fdd;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+input:valid {
+  border-color: var(--dark-blue);
+  background-color: lightgreen;
+}
+
+.submitBtn {
+  padding: 1em 4em;
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: var(--fiery-red);
+  border-radius: 0 0 5px 5px;
+}
+
+.error.active {
+  padding: 0.3em;
+}
