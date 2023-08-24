@@ -13,6 +13,12 @@ const country = document.getElementById('country');
 const zip = document.getElementById('ZIP');
 const zipError = document.querySelector('#ZIP + span.error');
 
+const password = document.getElementById('password');
+const passwordError = document.querySelector('#password + span.error');
+
+const confirmPW = document.getElementById('confirmPW');
+const confirmError = document.querySelector('#confirmPW + span.error');
+
 const buttonSubmit = document.getElementById('submitBtn');
 
 firstName.addEventListener('input', () => {
@@ -51,11 +57,20 @@ zip.addEventListener('input', () => {
   }
 });
 
-form.addEventListener('submit', (e) => {
-  console.log(e);
-  if (!email.validity.valid) {
-    customShowError(email, 'emailError', 'email');
+password.addEventListener('input', () => {
+  if (password.validity.valid) {
+    validInput(passwordError);
+  } else {
+    customShowError(password, passwordError, 'password');
+  }
+});
 
+confirmPW.addEventListener('input', () => {
+  validatePassword(confirmError);
+});
+
+form.addEventListener('submit', (e) => {
+  if (form.checkValidity() === false) {
     e.preventDefault();
   }
 });
@@ -85,6 +100,27 @@ function customShowError(inputName, spanName, type) {
       spanName.textContent = `${inputName.id} name should be atleast ${inputName.minLength} characters; you entered ${inputName.value.length}.`;
     }
     spanName.className = 'error active';
+  } else if (type == 'password') {
+    if (inputName.validity.valueMissing) {
+      spanName.textContent = 'You need to enter a password';
+    } else if (inputName.validity.tooShort) {
+      spanName.textContent = `Password should be atleast ${inputName.minLength}. You entered ${inputName.value.length}`;
+    } else if (inputName.validity.tooLong) {
+      spanName.textContent = `Password should be atleast ${inputName.maxlength}. You put ${inputName.value.length}`;
+    }
+    spanName.className = 'error active';
+  }
+}
+
+function validatePassword(spanName) {
+  const pass2 = document.getElementById('confirmPW').value;
+  const pass1 = document.getElementById('password').value;
+
+  if (pass1 !== pass2) {
+    spanName.textContent = `Passwords do not match!`;
+    spanName.className = 'error active';
+  } else {
+    validInput(spanName);
   }
 }
 
