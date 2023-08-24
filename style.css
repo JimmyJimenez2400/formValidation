@@ -33,7 +33,7 @@ label {
 input {
   appearance: none;
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   border: none;
   outline-color: transparent;
 }
@@ -57,9 +57,6 @@ ul {
   align-items: center;
   width: 80%;
   height: 80%;
-
-
-
 }
 
 #content>* {
@@ -72,10 +69,7 @@ ul {
 }
 
 #welcomePhoto {
-
   position: relative;
-
-
 }
 
 #welcomePhoto img {
@@ -153,6 +147,11 @@ input:focus:invalid {
 }
 
 input:valid {
+  border-color: var(--dark-blue);
+  background-color: lightgreen;
+}
+
+input[type="email"]:valid {
   border-color: var(--dark-blue);
   background-color: lightgreen;
 }
